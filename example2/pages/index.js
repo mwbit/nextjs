@@ -1,13 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
 
-export default () => (
-  <div>
-    <p>Hello World!</p>
-    <Link href="/contact">
-      <a>Contact me!</a>
+const Post = props => (
+  <li>
+    <Link href={`/post?title=${props.title}`}>
+      <a>{props.title}</a>
     </Link>
-  </div>
+  </li>
 )
 
-https://flaviocopes.com/nextjs/
+export default () => (
+  <div>
+    <h2>My blog</h2>
+    <ul>
+      <li>
+        <Post title="Yet another post" />
+        <Post title="Second post" />
+        <Post title="Hello, world!" />
+      </li>
+    </ul>
+  </div>
+)
